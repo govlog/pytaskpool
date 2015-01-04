@@ -4,7 +4,7 @@
 Setup file for pytaskpool
 """
 
-from setuptools import setup, find_packages
+from setuptools import setup, find_packages, Command
 from codecs import open
 from os import path
 
@@ -12,6 +12,23 @@ here = path.abspath(path.dirname(__file__))
 
 with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
+
+
+class PyTest(Command):
+    user_options = []
+
+    def initialize_options(self):
+        pass
+
+    def finalize_options(self):
+        pass
+
+    def run(self):
+        import sys, subprocess
+
+        errno = subprocess.call([sys.executable, 'runtests.py'])
+        raise SystemExit(errno)
+
 
 setup(
     name='pytaskpool',
@@ -45,5 +62,7 @@ setup(
     packages=find_packages(exclude=['contrib', 'docs', 'tests*']),
 
     install_requires=['multiprocessing'],
+
+    cmdclass={'test': PyTest},
 
 )
