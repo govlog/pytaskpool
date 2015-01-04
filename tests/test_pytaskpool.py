@@ -1,7 +1,7 @@
 # coding=utf-8
 
 import unittest
-
+from pprint import pprint
 import pytaskpool as tp
 
 
@@ -37,4 +37,4 @@ class TestTP(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main(verbosity=2)
