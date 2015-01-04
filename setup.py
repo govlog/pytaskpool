@@ -53,7 +53,7 @@ setup(
         'Intended Audience :: Developers',
         'Topic :: Software Development',
 
-        'License :: OSI Approved :: GPL License',
+        'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
 
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3.4',
