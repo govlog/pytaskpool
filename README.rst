@@ -1,5 +1,3 @@
-# coding=utf-8
-
 A simple asynchronous multiprocessing function launcher
 =======================================================
 
