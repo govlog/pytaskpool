@@ -4,4 +4,4 @@
 init package
 """
 
-import pytaskpool as TaskPool
+from pytaskpool import TaskPool
