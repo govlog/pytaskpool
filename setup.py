@@ -26,7 +26,7 @@ class PyTest(Command):
     def run(self):
         import sys, subprocess
 
-        errno = subprocess.call([sys.executable, 'runtests.py'])
+        errno = subprocess.call([sys.executable, 'runtests.py' , '-v'])
         raise SystemExit(errno)
 
 
@@ -63,6 +63,7 @@ setup(
 
     install_requires=['multiprocessing'],
 
-    cmdclass={'test': PyTest},
+    cmdclass={'test': PyTest}
+
 
 )
