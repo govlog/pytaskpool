@@ -51,7 +51,7 @@ setup(
         'Development Status :: 4 - Beta',
 
         'Intended Audience :: Developers',
-        'Topic :: Software Development :: Multiprocessing',
+        'Topic :: Software Development',
 
         'License :: OSI Approved :: GPL License',
 
