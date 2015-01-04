@@ -20,7 +20,7 @@ setup(
     description='A simple multiprocessing function pool',
     long_description=long_description,
 
-    url='https://github.com/govlog/simpletaskpool',
+    url='https://github.com/govlog/pytaskpool',
 
     author='AMIAUD Christopher',
     author_email='christopher.amiaud@gmail.com',
