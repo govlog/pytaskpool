@@ -3,3 +3,5 @@
 """
 init package
 """
+
+import pytaskpool as TaskPool
