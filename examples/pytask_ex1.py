@@ -45,6 +45,6 @@ for r in tp.get_unsorted_results():
     order_exec += r
 
 print
-print "results in end of execution order :", order_exec
+print "results in execution end order :", order_exec
 print
-print "results in launch order           :", order_launch
+print "results in launch order        :", order_launch
