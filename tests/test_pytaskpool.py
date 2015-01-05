@@ -3,36 +3,45 @@
 import unittest
 import pytaskpool as tp
 
+def testfunc(x):
+    return [x ** x]
+
+depth = 128
+depth_range = range(depth)
+
+expected = [testfunc(x) for x in depth_range]
 
 class TestTP(unittest.TestCase):
     def setUp(self):
-
-        self.result = []
-
-        self.mypool = tp.TaskPool([], 2)
-
-        self.expected = [1, 1, 4, 27, 256, 3125, 46656, 823543, 16777216, 387420489, 10000000000, 285311670611,
-                         8916100448256, 302875106592253, 11112006825558016, 437893890380859375]
+        self.results = []
+        self.mypool = tp.TaskPool([],3)
         pass
 
-    def test_tp_create(self):
+    def test_init(self):
         self.assertIsInstance(self.mypool, tp.TaskPool)
 
-    def test_multi_process(self):
+    def test_launch(self):
+        for y in depth_range:
+            self.mypool.launch(testfunc, y)
 
-        def testfunc(x):
-            return [x ** x]
-
-        for y in range(16):
+    def test_unsorted_results(self):
+        for y in depth_range:
             self.mypool.launch(testfunc, y)
 
         for r in self.mypool.get_unsorted_results():
-            self.assertIn(r[0], self.expected)
+            self.results += r
+            self.assertIn(r, expected)
+
+        self.assertEqual(len(self.results),depth)
+
+    def test_sorted_results(self):
+        for y in depth_range:
+            self.mypool.launch(testfunc, y)
 
         for r in self.mypool.get_sorted_results():
-            self.result += r
+            self.results += [r]
 
-        self.assertEqual(self.result, self.expected)
+        self.assertEqual(self.results, expected)
 
 
 if __name__ == '__main__':
