@@ -1,16 +1,17 @@
 # coding=utf-8
-import pytaskpool as tp
-import time
-
 from time import sleep
-from pytaskpool import TaskPool
+from random import randint
+
+import pytaskpool as tp
 
 
-def test_func(x, wait):
+def test_func(x):
     """
-    This  function return the square root of x in an array after waiting a number of seconds defined by wait param
+    This  function return the square root of x in an array after randomly waiting between 0 to 2.56s
     """
-    sleep(wait)
+    rand_time = randint(0, 256) / 100.
+    sleep(rand_time)
+    print "function :", x, ": sleeping", rand_time, "before exit"
     return [x ** x]
 
 
@@ -18,33 +19,26 @@ def test_func(x, wait):
 count = 32
 
 # how many process we'll use
-process = 32
-
-# function execution duration in seconds
-wait = 1
+process = 4
 
 count_depth = range(count)
-order_exec = []
-order_launch = []
+excepted = [[r ** r] for r in count_depth]
 
-# creation of a pool of process
-tp = tp.TaskPool([], process)
+# creation of a pool of 8 process
+tp = tp.TaskPool([], 8)
 
-print "Launching", count, "functions that will wait", wait, "second(s), with", process, "process"
+print "Launching", count, "functions that will wait between 0 to 2.56s using", process, "processes"
 
 # launch
 for y in count_depth:
-    tp.launch(test_func, y, wait)
+    tp.launch(test_func, y)
 
-# get results in order of launch
-for r in tp.get_sorted_results():
-    order_launch += r
+print "All launched, waiting all to finish"
 
-# get results in order of completion
-for r in tp.get_unsorted_results():
-    order_exec += r
+unres = [r for r in tp.get_unsorted_results()]
+print "All tasks done"
 
-print
-print "results in execution end order :", order_exec
-print
-print "results in launch order        :", order_launch
+res = [r for r in tp.get_sorted_results()]
+
+if res == excepted:
+    print "results match the excepted"
