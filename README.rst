@@ -26,12 +26,9 @@ It can be installed running the following command:
 
 or by git like this::
 
-    ``git clone https://github.com/govlog/pytaskpool``
-
-    ``cd pytaskpool``
-
-    ``sudo python setup.py install``
-
+    $ git clone https://github.com/govlog/pytaskpool
+    $ cd pytaskpool
+    $ sudo python setup.py install
 
 
 Usage
