@@ -30,7 +30,9 @@ Usage
 =====
 
 This sample code will launch 8 function simultanously using a pool of 8 process
-The execution time should be 1 second::
+The execution time should be 1 second.
+
+Sample code:::
 
     import pytaskpool as tp
     from time import sleep
@@ -51,7 +53,7 @@ The execution time should be 1 second::
     for r in tp.get_sorted_results():
         print r
 
-Result of execution ::
+Result of execution:::
 
     gov@dev:~$ time python example.py
     [1]
