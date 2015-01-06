@@ -6,7 +6,7 @@ Download and docs:
 Source code & Development:
     https://github.com/govlog/pytaskpool
 Issues:
-    christopher __dot__ amiaud __at__ gmail.com
+    christopher.amiaud@gmail.com
 
 Description
 ===========
@@ -72,4 +72,4 @@ Result of execution:
 
 Author
 ======
-christopher __dot__ amiaud __at__ gmail.com
+christopher.amiaud@gmail.com
