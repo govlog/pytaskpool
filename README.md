@@ -16,9 +16,7 @@ pip install pytaskpool
 
 using it
 ========
-
-.. code-block:: python
-
+```
   import pytaskpool as tp
 
   def my_func(x):
@@ -34,6 +32,7 @@ using it
   #display results
   for r in tp.get_sorted_results():
     print r
+```
 
 author
 ======
