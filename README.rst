@@ -17,16 +17,14 @@ cores. Functions results can be then obtained in order or not (via a generator).
 
 installation
 ============
-you can install it using pip :
 
-pip install pytaskpool
+pytaskpool is available in the python index package (pip),
+It can be installed running the following command:
+
+``pip install pytaskpool``
 
 using it
 ========
-
-
-sample code :
--------------
 
 This sample code will launch 8 function simultanously using a pool of 8 process
 The execution time should be 1 second::
