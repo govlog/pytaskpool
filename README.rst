@@ -39,7 +39,7 @@ This sample code will simultanously launch 8 functions with differents parameter
 The results returned by all launched functions will be get by the method get_sorted_results(), which is a generator
 returning the functions results in order.
 
-The excepted execution time should be 1 second.
+The excepted execution time should be around 1 second.
 
 Sample code::
 
