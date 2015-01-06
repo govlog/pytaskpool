@@ -36,4 +36,4 @@ for r in tp.get_sorted_results():
 
 author
 ======
-christopher.amiaud __at__ gmail.com
+christopher __dot__ amiaud __at__ gmail.com
