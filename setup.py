@@ -37,12 +37,11 @@ setup(
     description='A simple multiprocessing function pool',
     long_description=long_description,
 
-    url='https://github.com/govlog/pytaskpool',
-
     author='AMIAUD Christopher',
     author_email='christopher.amiaud@gmail.com',
 
-    download_url = 'https://github.com/govlog/pytaskpool/tarball/0.1',
+    url='https://github.com/govlog/pytaskpool',
+    download_url='https://github.com/govlog/pytaskpool/tarball/0.1',
 
     license='GPL',
 
