@@ -4,8 +4,7 @@ A simple multiprocess function pooler which create results generators
 
 pytaskpool use python multiprocessing module
 
-pytaskpool provide an easy way to execute python functions in a pool of process (not threads) for using all your CPU
- cores. Functions results can be then obtained in order or not (via a generator).
+pytaskpool provide an easy way to execute python functions in a pool of process (not threads) for using all your CPU cores. Functions results can be then obtained in order or not (via a generator).
 
 installation
 ============
