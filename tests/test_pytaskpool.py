@@ -1,21 +1,31 @@
 # coding=utf-8
 
 import unittest
+from time import sleep
+from random import randint
+
 import pytaskpool as tp
 
 
-depth = 256
-process = 2
+depth = 19
+process = 3
+
+# each process sleep between 0 and 256 ms
+max_time = 256
 depth_range = range(depth)
 
-def functest(x):
-    return [x ** x]
+# function that simulate a process that take random time
+def functest(x, wait=1):
+    if wait:
+        sleep_time = randint(0, max_time) / 1000.
+        sleep(sleep_time)
+    return [x]
 
-expected = [functest(x) for x in depth_range]
+
+expected = [functest(x, 0) for x in depth_range]
 
 class TestTP(unittest.TestCase):
     def setUp(self):
-
         self.results = []
         self.mypool = tp.TaskPool([], process)
         self.assertIsInstance(self.mypool, tp.TaskPool)
