@@ -14,23 +14,25 @@ pip install pytaskpool
 
 using it
 ========
-```
-import pytaskpool as tp
 
-def my_func(x):
-  return [x ** x]
 
-# create a pool of 8 process
-mypool = tp.TaskPool([], 8)
+sample code :
+-------------
+ import pytaskpool as tp
 
-# launch 100 my_func
-for r in range(100):
-  tp.launch(my_func, r)
+ def my_func(x):
+   return [x ** x]
 
-#display results
-for r in tp.get_sorted_results():
-  print r
-```
+ # create a pool of 8 process
+ mypool = tp.TaskPool([], 8)
+
+ # launch 100 my_func
+ for r in range(100):
+   tp.launch(my_func, r)
+
+ #display results
+ for r in tp.get_sorted_results():
+   print r
 
 author
 ======
