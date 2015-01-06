@@ -20,9 +20,9 @@ Installation
 ============
 
 pytaskpool is available in the python index package (pip),
-It can be installed running the following command:
+It can be installed running the following command::
 
-``pip install pytaskpool``
+    $ pip install pytaskpool
 
 or by git like this::
 
@@ -30,13 +30,14 @@ or by git like this::
     $ cd pytaskpool
     $ sudo python setup.py install
 
+or even in a zip over http : https://github.com/govlog/pytaskpool/archive/master.zip
 
 Usage
 =====
 
 This sample code will simultanously launch 8 functions with differents parameters using a pool of 8 processes.
 The results returned by all launched functions will be get by the method get_sorted_results(), which is a generator
-returning the function result in order.
+returning the functions results in order.
 
 The excepted execution time should be 1 second.
 
@@ -62,7 +63,7 @@ Sample code::
 
 Terminal output should look like this::
 
-    $ time python test_.py
+    $ time python test.py
     unsorted : [[1], [4], [1], [3125], [823543], [256], [27], [46656]]
     sorted   : [[1], [1], [4], [27], [256], [3125], [46656], [823543]]
 
