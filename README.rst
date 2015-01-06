@@ -6,7 +6,7 @@ A simple multiprocess function pooler which create results generators
 pytaskpool use the python multiprocessing module
 
 pytaskpool provide an easy way to execute python functions in a pool of process (not threads) for using all your CPU
-cores. Functions results can be then obtained in order or not (via a generator).
+cores. Functions results can then be then obtained in order or not (via a generator method).
 
 Download and docs:
     http://pypi.python.org/pypi/pytaskpool
@@ -24,11 +24,23 @@ It can be installed running the following command:
 
 ``pip install pytaskpool``
 
+or by git like this::
+
+    ``git clone https://github.com/govlog/pytaskpool``
+
+    ``cd pytaskpool``
+
+    ``sudo python setup.py install``
+
+
 
 Usage
 =====
 
-This sample code will launch 8 functions simultanously using a pool of 8 processes
+This sample code will simultanously launch 8 functions with differents parameters using a pool of 8 processes.
+The results returned by all launched functions will be get by the method get_sorted_results(), which is a generator
+returning the function result in order.
+
 The excepted execution time should be 1 second.
 
 Sample code::
@@ -36,35 +48,28 @@ Sample code::
     import pytaskpool as tp
     from time import sleep
 
-    # this function wait 1 second before return
     def my_func(x):
         sleep(1)
         return [x ** x]
 
-    # create a pool of 8 process
     mypool = tp.TaskPool([], 8)
 
-    # launch my_func eight times
     for r in range(8):
-        tp.launch(my_func, r)
+        mypool.launch(my_func, r)
 
-    #display results
-    for r in tp.get_sorted_results():
-        print r
+    unsorted = [r for r in mypool.get_unsorted_results()]
+    sorted = [r for r in mypool.get_sorted_results()]
 
-Terminal output::
+    print "unsorted :",unsorted
+    print "sorted   :",sorted
 
-    $ time python example.py
-    [1]
-    [1]
-    [4]
-    [27]
-    [256]
-    [3125]
-    [46656]
-    [823543]
+Terminal output should look like this::
 
-    real    0m1.036s
-    user    0m0.845s
-    sys     0m0.210s
+    $ time python test_.py
+    unsorted : [[1], [4], [1], [3125], [823543], [256], [27], [46656]]
+    sorted   : [[1], [1], [4], [27], [256], [3125], [46656], [823543]]
+
+    real    0m1.031s
+    user    0m0.858s
+    sys     0m0.193s
 
