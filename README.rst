@@ -3,7 +3,7 @@ pytaskpool
 
 A simple multiprocess function pooler which create results generators
 
-pytaskpool use python multiprocessing module
+pytaskpool use the python multiprocessing module
 
 pytaskpool provide an easy way to execute python functions in a pool of process (not threads) for using all your CPU
 cores. Functions results can be then obtained in order or not (via a generator).
@@ -28,8 +28,8 @@ It can be installed running the following command:
 Usage
 =====
 
-This sample code will launch 8 function simultanously using a pool of 8 process
-The execution time should be 1 second.
+This sample code will launch 8 functions simultanously using a pool of 8 processes
+The excepted execution time should be 1 second.
 
 Sample code::
 
@@ -51,7 +51,6 @@ Sample code::
     #display results
     for r in tp.get_sorted_results():
         print r
-
 
 Terminal output::
 
