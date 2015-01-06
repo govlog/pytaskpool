@@ -29,7 +29,7 @@ sample code :
 -------------
 
 This sample code will launch 8 function simultanously using a pool of 8 process
-The execution time should be 1 second
+The execution time should be 1 second::
 
     import pytaskpool as tp
     from time import sleep
