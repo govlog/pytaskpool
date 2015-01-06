@@ -3,18 +3,22 @@
 import unittest
 import pytaskpool as tp
 
-def testfunc(x):
-    return [x ** x]
 
-depth = 128
+depth = 256
+process = 2
 depth_range = range(depth)
 
-expected = [testfunc(x) for x in depth_range]
+def functest(x):
+    return [x ** x]
+
+expected = [functest(x) for x in depth_range]
 
 class TestTP(unittest.TestCase):
     def setUp(self):
+
         self.results = []
-        self.mypool = tp.TaskPool([],3)
+        self.mypool = tp.TaskPool([], process)
+        self.assertIsInstance(self.mypool, tp.TaskPool)
         pass
 
     def test_init(self):
@@ -22,21 +26,21 @@ class TestTP(unittest.TestCase):
 
     def test_launch(self):
         for y in depth_range:
-            self.mypool.launch(testfunc, y)
+            self.mypool.launch(functest, y)
 
     def test_unsorted_results(self):
         for y in depth_range:
-            self.mypool.launch(testfunc, y)
+            self.mypool.launch(functest, y)
 
         for r in self.mypool.get_unsorted_results():
             self.results += r
             self.assertIn(r, expected)
 
-        self.assertEqual(len(self.results),depth)
+        self.assertEqual(len(self.results), depth)
 
     def test_sorted_results(self):
         for y in depth_range:
-            self.mypool.launch(testfunc, y)
+            self.mypool.launch(functest, y)
 
         for r in self.mypool.get_sorted_results():
             self.results += [r]
