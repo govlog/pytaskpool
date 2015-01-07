@@ -32,7 +32,7 @@ class PyTest(Command):
 
 setup(
     name='pytaskpool',
-    version='1.0b3',
+    version='1.0b4',
 
     description='A simple multiprocessing function pool',
     long_description=long_description,
@@ -49,13 +49,19 @@ setup(
 
         'Development Status :: 4 - Beta',
 
+        'Operating System :: Microsoft :: Windows',
+        'Operating System :: MacOS',
+        'Operating System :: POSIX :: Linux'
+
         'Intended Audience :: Developers',
         'Topic :: Software Development',
+        'Topic :: System :: Hardware :: Symmetric Multi-processing',
 
         'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
 
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3.4',
+
     ],
 
     keywords='simple multiprocessing function pool',
