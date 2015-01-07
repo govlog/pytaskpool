@@ -30,8 +30,7 @@ class TaskPool(object):
         self.sorted_results = []
         self.finished = False
 
-    # privates methods
-    def __task_do(self, funcname, *args):
+    def task_do(self, funcname, *args):
         """Execute the function and put indexed results in the shared queue"""
         self.var_type += funcname(*args)
         self.out_q.put([(self.task_index, [self.var_type])])
@@ -69,7 +68,7 @@ class TaskPool(object):
             self.results += self.out_q.get()
             self.running -= 1
 
-        p = mp.Process(target=self.__task_do, args=list(args))
+        p = mp.Process(target=self.task_do, args=list(args))
         p.start()
 
         self.running += 1
