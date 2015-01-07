@@ -8,6 +8,8 @@ pytaskpool use the python multiprocessing module
 pytaskpool provide an easy way to execute python functions in a pool of process (not threads) for using all your CPU
 cores. Functions results can then be then obtained in order or not (via a generator method).
 
+pytaskpool works on windows and linux.
+
 Download and docs:
     http://pypi.python.org/pypi/pytaskpool
 Source code & Development:

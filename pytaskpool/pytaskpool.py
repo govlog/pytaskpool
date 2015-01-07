@@ -36,7 +36,7 @@ class TaskPool(object):
         self.out_q.put([(self.task_index, [self.var_type])])
 
     def __get_results(self):
-        """Wait the completion of remaining tasks then return an indexed array of all results"""
+        """Wait the completion of remaining tasks (if any) and return the indexed results list"""
         if not self.finished:
 
             # getting the lasts queue datas from remaining process
@@ -49,7 +49,7 @@ class TaskPool(object):
         return self.results
 
     def __get_sorted_results(self):
-        """Sort and return the result indexed array in order of tasks execution"""
+        """Sort and return the indexed results list in order of tasks launch"""
         if not self.sorted_results:
             self.sorted_results = sorted(self.__get_results())
 
@@ -58,7 +58,7 @@ class TaskPool(object):
     # publics methods
     def launch(self, *args):
         """
-        Launch the function in a process of the pool if there is a free slots, otherwise it will wait until a slot is
+        Launch the function with it args in a process if there is a free slot, otherwise it will wait until a slot is
         freed
 
         Arguments:
@@ -75,11 +75,11 @@ class TaskPool(object):
         self.task_index += 1
 
     def get_sorted_results(self):
-        """Generator returning the results in order of tasks execution"""
+        """Generator returning the results in tasks launch order"""
         for r in self.__get_sorted_results():
             yield r[1][0]
 
     def get_unsorted_results(self):
-        """Generator returning the results in order of tasks completion"""
+        """Generator returning the results in tasks completion order"""
         for r in self.__get_results():
             yield r[1][0]
