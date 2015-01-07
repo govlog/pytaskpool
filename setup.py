@@ -41,7 +41,7 @@ setup(
     author_email='christopher.amiaud@gmail.com',
 
     url='https://github.com/govlog/pytaskpool',
-    download_url='https://github.com/govlog/pytaskpool/tarball/0.3',
+    download_url='https://github.com/govlog/pytaskpool/tarball/1.04b',
 
     license='GPL',
 
