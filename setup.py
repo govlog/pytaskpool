@@ -51,7 +51,7 @@ setup(
 
         'Operating System :: Microsoft :: Windows',
         'Operating System :: MacOS',
-        'Operating System :: POSIX :: Linux'
+        'Operating System :: POSIX :: Linux',
 
         'Intended Audience :: Developers',
         'Topic :: Software Development',
