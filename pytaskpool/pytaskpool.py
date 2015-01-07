@@ -7,7 +7,7 @@ class TaskPool(object):
 
     def __init__(self, var_type, max_process=0):
         """
-        TaskPool initiator creates the shared Queue between process.
+        TaskPool initiator : creates the shared Queue between process.
 
         Arguments:
         var_type    : the type of var excepted from the launched functions
