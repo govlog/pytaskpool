@@ -1,5 +1,5 @@
-pytaskpool
-==========
+pytaskpool (v1.4)
+=================
 
 A simple multiprocess function pooler which create results generators
 
