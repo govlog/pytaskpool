@@ -60,8 +60,8 @@ Sample code::
     unsorted = [r for r in mypool.get_unsorted_results()]
     sorted = [r for r in mypool.get_sorted_results()]
 
-    print "unsorted :",unsorted
-    print "sorted   :",sorted
+    print ("unsorted :",unsorted)
+    print ("sorted   :",sorted)
 
 Terminal output should look like this::
 
