@@ -4,4 +4,4 @@
 init package
 """
 
-from pytaskpool import TaskPool
+from .pytaskpool import TaskPool
