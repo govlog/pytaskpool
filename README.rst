@@ -65,7 +65,6 @@ Sample code::
 
 Terminal output should look like this::
 
-```
 time python examples/pytask_ex2.py 
 unsorted : [1, 1, 4, 27, 256, 46656, 3125, 823543]
 sorted   : [1, 1, 4, 27, 256, 3125, 46656, 823543]
@@ -73,4 +72,3 @@ sorted   : [1, 1, 4, 27, 256, 3125, 46656, 823543]
 real	0m1,055s
 user	0m0,800s
 sys	0m0,272s
-```
