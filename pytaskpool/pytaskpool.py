@@ -5,12 +5,11 @@ import multiprocessing as mp
 
 class TaskPool(object):
 
-    def __init__(self, var_type, max_process=0):
+    def __init__(self, max_process=0):
         """
         TaskPool initiator : creates the shared Queue between process.
 
         Arguments:
-        var_type    : the type of var excepted from the launched functions
         max_process : pool number of process, if not set, it'll use number of detected CPUs.
         """
 
@@ -25,15 +24,15 @@ class TaskPool(object):
 
         self.task_index = 0
         self.running = 0
-        self.var_type = var_type
+        self.var_type = []
         self.results = []
         self.sorted_results = []
         self.finished = False
 
     def task_do(self, funcname, *args):
         """Execute the function and put indexed results in the shared queue"""
-        self.var_type += funcname(*args)
-        self.out_q.put([(self.task_index, [self.var_type])])
+        self.var_type.append(funcname(*args))
+        self.out_q.put([(self.task_index, self.var_type)])
 
     def __get_results(self):
         """Wait the completion of remaining tasks (if any) and return the indexed results list"""

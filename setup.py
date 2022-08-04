@@ -32,7 +32,7 @@ class PyTest(Command):
 
 setup(
     name='pytaskpool',
-    version='1.4',
+    version='1.5',
 
     description='A simple multiprocessing function pool',
     long_description=long_description,
@@ -41,7 +41,7 @@ setup(
     author_email='christopher.amiaud@gmail.com',
 
     url='https://github.com/govlog/pytaskpool',
-    download_url='https://github.com/govlog/pytaskpool/tarball/1.4',
+    download_url='https://github.com/govlog/pytaskpool/tarball/1.5',
 
     license='GPL',
 

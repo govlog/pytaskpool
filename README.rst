@@ -1,4 +1,4 @@
-pytaskpool (v1.4)
+pytaskpool (v1.5)
 =================
 
 A simple multiprocess function pooler which create results generators
@@ -50,9 +50,9 @@ Sample code::
 
     def my_func(x):
         sleep(1)
-        return [x ** x]
+        return x ** x
 
-    mypool = tp.TaskPool([], 8)
+    mypool = tp.TaskPool(8)
 
     for r in range(8):
         mypool.launch(my_func, r)
@@ -65,11 +65,12 @@ Sample code::
 
 Terminal output should look like this::
 
-    $ time python test.py
-    unsorted : [[1], [4], [1], [3125], [823543], [256], [27], [46656]]
-    sorted   : [[1], [1], [4], [27], [256], [3125], [46656], [823543]]
+```
+time python examples/pytask_ex2.py 
+unsorted : [1, 1, 4, 27, 256, 46656, 3125, 823543]
+sorted   : [1, 1, 4, 27, 256, 3125, 46656, 823543]
 
-    real    0m1.031s
-    user    0m0.858s
-    sys     0m0.193s
-
+real	0m1,055s
+user	0m0,800s
+sys	0m0,272s
+```
